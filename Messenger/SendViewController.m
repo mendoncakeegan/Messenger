@@ -122,7 +122,10 @@
                                    otherButtonTitles:nil] show];
              }
          }];
-        
+        PFPush *push = [[PFPush alloc] init];
+        [push setChannel:_receiver];
+        [push setMessage:input];
+        [push sendPushInBackground];
     }
 }
 - (void)viewWillAppear:(BOOL)animated

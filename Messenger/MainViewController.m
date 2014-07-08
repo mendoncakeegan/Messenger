@@ -53,6 +53,13 @@
         // Present the log in view controller
         [self presentViewController:logInViewController animated:YES completion:NULL];
     }
+    else
+    {
+        NSString *username = [[PFUser currentUser] username];
+        PFInstallation *currentInstallation = [PFInstallation currentInstallation];
+        [currentInstallation addUniqueObject:username forKey:@"channels"];
+        [currentInstallation saveInBackground];
+    }
 }
 - (void)logInViewController:(PFLogInViewController *)logInController didLogInUser:(PFUser *)user {
     [self dismissViewControllerAnimated:YES completion:NULL];
