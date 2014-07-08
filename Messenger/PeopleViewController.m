@@ -178,7 +178,7 @@
              else
              {
                  [[[UIAlertView alloc] initWithTitle:@"Error"
-                                             message:error.localizedDescription
+                                             message:@"User not found"
                                             delegate:nil
                                    cancelButtonTitle:@"OK"
                                    otherButtonTitles:nil] show];
