@@ -29,7 +29,6 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
 }
-
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
@@ -37,7 +36,6 @@
 }
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
-    
     if (![PFUser currentUser]) { // No user logged in
         // Create the log in view controller
         PFLogInViewController *logInViewController = [[CustomLoginViewController alloc] init];
@@ -113,6 +111,7 @@
     [user saveInBackground];
     [self dismissViewControllerAnimated:YES completion:NULL];
 }
+
 /*
 #pragma mark - Navigation
 
