@@ -108,7 +108,7 @@
     user[@"friends"] = @[];
     user[@"messages"] = @[];
     user[@"requests"] = @[];
-    [user save];
+    [user saveInBackground];
     [self dismissViewControllerAnimated:YES completion:NULL];
 }
 /*
