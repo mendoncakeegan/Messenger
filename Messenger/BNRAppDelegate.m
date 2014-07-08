@@ -9,14 +9,17 @@
 #import "BNRAppDelegate.h"
 #import <Parse/Parse.h>
 @implementation BNRAppDelegate
-fbkleulrclvtkvuvrktdvbbvgenccchv
+
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     [Parse setApplicationId:@"Y38CtM4xFxqLUGbYYpkX9RZN9cCtVw4XO3nu95W2"
                   clientKey:@"2w8j4bEjKRhOz527mqav27nHOBFPXPFJYuAcJtLr"];
+    [application registerForRemoteNotificationTypes:UIRemoteNotificationTypeBadge|
+     UIRemoteNotificationTypeAlert|
+     UIRemoteNotificationTypeSound];
     return YES;
 }
-							
+
 - (void)applicationWillResignActive:(UIApplication *)application
 {
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
@@ -42,5 +45,17 @@ fbkleulrclvtkvuvrktdvbbvgenccchv
 - (void)applicationWillTerminate:(UIApplication *)application
 {
 }
+- (void)application:(UIApplication *)application
+didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken
+{
+    // Store the deviceToken in the current installation and save it to Parse.
+    PFInstallation *currentInstallation = [PFInstallation currentInstallation];
+    [currentInstallation setDeviceTokenFromData:deviceToken];
+    [currentInstallation saveInBackground];
+}
 
+- (void)application:(UIApplication *)application
+didReceiveRemoteNotification:(NSDictionary *)userInfo {
+    [PFPush handlePush:userInfo];
+}
 @end
