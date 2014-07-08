@@ -154,6 +154,16 @@
                 [alert show];
                 return;
             }
+        for(NSString *person in ([PFUser currentUser])[@"friends"])
+        {
+            if([input isEqualToString:person])
+            {
+                UIAlertView * alert = [[UIAlertView alloc] initWithTitle:@"You cannot add current friends" message:@"" delegate:self cancelButtonTitle:@"ok" otherButtonTitles:nil, nil];
+                alert.alertViewStyle = UIAlertViewStyleDefault;
+                [alert show];
+                return;
+            }
+        }
         NSDictionary * params = @{@"username": input, @"user": [[PFUser currentUser] username]};
         [PFCloud callFunctionInBackground:@"modifyUser" withParameters:params block:^(NSArray *results, NSError *error)
          {
