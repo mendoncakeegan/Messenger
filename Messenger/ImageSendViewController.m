@@ -81,15 +81,6 @@
                    action:@selector(addFriends)
          forControlEvents:UIControlEventTouchUpInside];
         [cell.contentView addSubview:button];
-        
-//        UIButton *camera = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-//        camera.frame = CGRectMake(10, 10, 30, 30);
-//        [camera setBackgroundImage:[UIImage imageNamed:@"camera"]
-//                          forState:UIControlStateNormal];
-//        [camera addTarget:self
-//                   action:@selector(takePicture:)
-//         forControlEvents:UIControlEventTouchUpInside];
-//        [cell.contentView addSubview:camera];
     } else if(friends && [friends count] > 0) {
         UIButton *button = [UIButton buttonWithType:UIButtonTypeRoundedRect];
         button.frame = CGRectMake(0,20,200,20);

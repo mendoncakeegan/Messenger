@@ -13,4 +13,6 @@
 @property (weak, nonatomic) IBOutlet UIImageView *thumbnailView;
 @property (weak, nonatomic) IBOutlet UILabel *imageSender;
 
+- (void)setThumbnailViewFromImage:(UIImage *)image;
+
 @end

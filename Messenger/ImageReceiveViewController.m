@@ -74,7 +74,7 @@
     NSString *cellImageString = (imageMessages && [imageMessages count] > 0) ? imageMessages[indexPath.row] : nil;
     NSData *data = [self dataFromBase64EncodedString:cellImageString];
     UIImage *cellImage = [UIImage imageWithData:data];
-    cell.thumbnailView.image = cellImage;
+    [cell setThumbnailViewFromImage:cellImage];
 
     NSArray *imageSenders = PFUser.currentUser[@"senders"];
     NSString *imageSender = (imageSenders && [imageSenders count] > 0) ? imageSenders[indexPath.row] : nil;
