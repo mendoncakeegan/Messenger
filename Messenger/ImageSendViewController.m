@@ -9,7 +9,9 @@
 #import "ImageSendViewController.h"
 #import "Parse/Parse.h"
 
-@interface ImageSendViewController ()
+@interface ImageSendViewController () <UIImagePickerControllerDelegate, UINavigationControllerDelegate, UIPopoverControllerDelegate>
+
+@property (strong, nonatomic) UIPopoverController *imagePickerPopover;
 
 @end
 
@@ -73,9 +75,21 @@
     if(indexPath.row == 0) {
         UIButton *button = [UIButton buttonWithType:UIButtonTypeRoundedRect];
         button.frame = CGRectMake(180,20,100,20);
-        [button setTitle:@"Add Friends" forState:UIControlStateNormal];
-        [button addTarget:self action:@selector(addFriends) forControlEvents:UIControlEventTouchUpInside];
+        [button setTitle:@"Add Friends"
+                forState:UIControlStateNormal];
+        [button addTarget:self
+                   action:@selector(addFriends)
+         forControlEvents:UIControlEventTouchUpInside];
         [cell.contentView addSubview:button];
+        
+//        UIButton *camera = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+//        camera.frame = CGRectMake(10, 10, 30, 30);
+//        [camera setBackgroundImage:[UIImage imageNamed:@"camera"]
+//                          forState:UIControlStateNormal];
+//        [camera addTarget:self
+//                   action:@selector(takePicture:)
+//         forControlEvents:UIControlEventTouchUpInside];
+//        [cell.contentView addSubview:camera];
     } else if(friends && [friends count] > 0) {
         UIButton *button = [UIButton buttonWithType:UIButtonTypeRoundedRect];
         button.frame = CGRectMake(0,20,200,20);
@@ -95,6 +109,64 @@
 - (void)touchedUser:(UIButton *)button
 {
     NSString *user = button.titleLabel.text;
+    
+    if([self.imagePickerPopover isPopoverVisible]) {
+        [self.imagePickerPopover dismissPopoverAnimated:YES];
+        self.imagePickerPopover = nil;
+        return;
+    }
+    
+    UIImagePickerController *imagePicker = [[UIImagePickerController alloc] init];
+    
+    if([UIImagePickerController
+        isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]) {
+        imagePicker.sourceType = UIImagePickerControllerSourceTypeCamera;
+    } else {
+        imagePicker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+    }
+    
+    imagePicker.delegate = self;
+    
+    [self presentViewController:imagePicker
+                       animated:YES
+                     completion:NULL];
+}
+
+- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
+{
+    UIImage *image = info[UIImagePickerControllerOriginalImage];
+    
+    NSDictionary * params = @{@"username": _receiver, @"message": input};
+    [PFCloud callFunctionInBackground:@"sendMessage" withParameters:params block:^(NSArray *results, NSError *error)
+     {
+         if(!error)
+         {
+             [[[UIAlertView alloc] initWithTitle:@"Message Sent"
+                                         message:@"Message has been sent"
+                                        delegate:nil
+                               cancelButtonTitle:@"OK"
+                               otherButtonTitles:nil] show];
+         }
+         else
+         {
+             [[[UIAlertView alloc] initWithTitle:@"Error"
+                                         message:error.localizedDescription
+                                        delegate:nil
+                               cancelButtonTitle:@"OK"
+                               otherButtonTitles:nil] show];
+         }
+     }];
+    PFPush *push = [[PFPush alloc] init];
+    [push setChannel:_receiver];
+    [push setMessage:input];
+    [push sendPushInBackground];
+    
+    [self.item setThumbnailFromImage:image];
+}
+
+- (void)popoverControllerDidDismissPopover:(UIPopoverController *)popoverController
+{
+    self.imagePickerPopover = nil;
 }
 
 /*

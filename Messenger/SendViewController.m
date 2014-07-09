@@ -125,10 +125,11 @@
         [push sendPushInBackground];
     }
 }
+
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
-    PFUser *user = [PFUser currentUser];
+//    PFUser *user = [PFUser currentUser];
     [self.tableView reloadData];
 }
 /*

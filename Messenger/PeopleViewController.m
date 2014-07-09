@@ -41,7 +41,7 @@
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
-    PFUser *user = [PFUser currentUser];
+//    PFUser *user = [PFUser currentUser];
     [self.tableView setEditing:YES animated:YES];
     [self.tableView reloadData];
 }
