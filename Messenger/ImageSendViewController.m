@@ -10,7 +10,7 @@
 #import "Parse/Parse.h"
 
 @interface ImageSendViewController () <UIImagePickerControllerDelegate, UINavigationControllerDelegate, UIPopoverControllerDelegate>
-
+@property (nonatomic) NSString * user;
 @property (strong, nonatomic) UIPopoverController *imagePickerPopover;
 
 @end
@@ -108,7 +108,7 @@
 
 - (void)touchedUser:(UIButton *)button
 {
-    NSString *user = button.titleLabel.text;
+    _user = button.titleLabel.text;
     
     if([self.imagePickerPopover isPopoverVisible]) {
         [self.imagePickerPopover dismissPopoverAnimated:YES];
@@ -131,13 +131,16 @@
                        animated:YES
                      completion:NULL];
 }
-
+- (NSString *)encodeToBase64String:(UIImage *)image {
+    return [UIImageJPEGRepresentation((image), 0) base64EncodedStringWithOptions:NSDataBase64Encoding64CharacterLineLength];
+}
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
 {
     UIImage *image = info[UIImagePickerControllerOriginalImage];
-    
-    NSDictionary * params = @{@"username": _receiver, @"message": input};
-    [PFCloud callFunctionInBackground:@"sendMessage" withParameters:params block:^(NSArray *results, NSError *error)
+    NSString *encodedImage = [self encodeToBase64String:image];
+    NSString *sender = [[PFUser currentUser] username];
+    NSDictionary * params = @{@"username": self.user, @"image": encodedImage, @"sender": sender};
+    [PFCloud callFunctionInBackground:@"sendPic" withParameters:params block:^(NSArray *results, NSError *error)
      {
          if(!error)
          {
@@ -156,12 +159,10 @@
                                otherButtonTitles:nil] show];
          }
      }];
-    PFPush *push = [[PFPush alloc] init];
-    [push setChannel:_receiver];
-    [push setMessage:input];
-    [push sendPushInBackground];
-    
-    [self.item setThumbnailFromImage:image];
+//    PFPush *push = [[PFPush alloc] init];
+//    [push setChannel:_receiver];
+//    [push setMessage:input];
+//    [push sendPushInBackground];
 }
 
 - (void)popoverControllerDidDismissPopover:(UIPopoverController *)popoverController
