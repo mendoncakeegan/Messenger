@@ -65,30 +65,27 @@
     UITableViewCell *cell =
     [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault
                            reuseIdentifier:@"UITableViewCell"];
-    if(indexPath.row == 0)
-    {
+
+    if(indexPath.row == 0) {
         UIButton *btn = [UIButton buttonWithType:UIButtonTypeRoundedRect];
         btn.frame = CGRectMake(180,20,100,20);
         [btn setTitle:@"Add Friends" forState:UIControlStateNormal];
         [btn addTarget:self action:@selector(btnPressed) forControlEvents:UIControlEventTouchUpInside];
         [cell.contentView addSubview:btn];
-    }
-    else if(_users && [_users count] != 0)
-    {
+    } else if(_users && [_users count] != 0) {
         UIButton *btn = [UIButton buttonWithType:UIButtonTypeRoundedRect];
         btn.frame = CGRectMake(0,20,200,20);
         [btn setTitle:_users[indexPath.row - 1] forState:UIControlStateNormal];
         [btn addTarget:self action:@selector(userPressed:) forControlEvents:UIControlEventTouchUpInside];
         [cell.contentView addSubview:btn];
-    }
-    else if(indexPath.row == 1)
+    } else if(indexPath.row == 1)
         cell.textLabel.text = @"You have no friends";
     return cell;
 }
 -(void)btnPressed
 {
     self.tabBarController.selectedViewController
-    = [self.tabBarController.viewControllers objectAtIndex:2];
+    = [self.tabBarController.viewControllers objectAtIndex:4];
 }
 -(void)userPressed:(UIButton *) button
 {

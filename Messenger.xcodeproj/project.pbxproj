@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B27A3770196C9A69007D5EB0 /* ImageSendViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B27A376F196C9A69007D5EB0 /* ImageSendViewController.m */; };
+		B27A3773196C9BCF007D5EB0 /* ImageMessageViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B27A3772196C9BCF007D5EB0 /* ImageMessageViewCell.m */; };
+		B27A3775196C9BE8007D5EB0 /* ImageMessageViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B27A3774196C9BE8007D5EB0 /* ImageMessageViewCell.xib */; };
+		B2A4BAC9196C94A300A734D0 /* ImageReceiveViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B2A4BAC8196C94A300A734D0 /* ImageReceiveViewController.m */; };
 		C086A14C1962FED900EA0EC9 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C086A14B1962FED900EA0EC9 /* Foundation.framework */; };
 		C086A14E1962FED900EA0EC9 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C086A14D1962FED900EA0EC9 /* CoreGraphics.framework */; };
 		C086A1501962FED900EA0EC9 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C086A14F1962FED900EA0EC9 /* UIKit.framework */; };
@@ -51,6 +55,13 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		B27A376E196C9A69007D5EB0 /* ImageSendViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageSendViewController.h; sourceTree = "<group>"; };
+		B27A376F196C9A69007D5EB0 /* ImageSendViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageSendViewController.m; sourceTree = "<group>"; };
+		B27A3771196C9BCF007D5EB0 /* ImageMessageViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageMessageViewCell.h; sourceTree = "<group>"; };
+		B27A3772196C9BCF007D5EB0 /* ImageMessageViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageMessageViewCell.m; sourceTree = "<group>"; };
+		B27A3774196C9BE8007D5EB0 /* ImageMessageViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ImageMessageViewCell.xib; sourceTree = "<group>"; };
+		B2A4BAC7196C94A300A734D0 /* ImageReceiveViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageReceiveViewController.h; sourceTree = "<group>"; };
+		B2A4BAC8196C94A300A734D0 /* ImageReceiveViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageReceiveViewController.m; sourceTree = "<group>"; };
 		C086A1481962FED900EA0EC9 /* Messenger.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Messenger.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C086A14B1962FED900EA0EC9 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		C086A14D1962FED900EA0EC9 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -184,12 +195,19 @@
 				C086A15D1962FED900EA0EC9 /* Main.storyboard */,
 				C086A1A41963142200EA0EC9 /* MainViewController.h */,
 				C086A1A51963142200EA0EC9 /* MainViewController.m */,
+				B27A3771196C9BCF007D5EB0 /* ImageMessageViewCell.h */,
+				B27A3772196C9BCF007D5EB0 /* ImageMessageViewCell.m */,
+				B27A3774196C9BE8007D5EB0 /* ImageMessageViewCell.xib */,
 				C086A1A1196313D000EA0EC9 /* PeopleViewController.h */,
 				C086A1A2196313D000EA0EC9 /* PeopleViewController.m */,
 				C086A19E196313B100EA0EC9 /* ReceiveViewController.h */,
 				C086A19F196313B100EA0EC9 /* ReceiveViewController.m */,
+				B2A4BAC7196C94A300A734D0 /* ImageReceiveViewController.h */,
+				B2A4BAC8196C94A300A734D0 /* ImageReceiveViewController.m */,
 				C086A19B1963137D00EA0EC9 /* SendViewController.h */,
 				C086A19C1963137D00EA0EC9 /* SendViewController.m */,
+				B27A376E196C9A69007D5EB0 /* ImageSendViewController.h */,
+				B27A376F196C9A69007D5EB0 /* ImageSendViewController.m */,
 				C086A1661962FED900EA0EC9 /* Images.xcassets */,
 				C086A1521962FED900EA0EC9 /* Supporting Files */,
 			);
@@ -310,6 +328,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B27A3775196C9BE8007D5EB0 /* ImageMessageViewCell.xib in Resources */,
 				C086A1671962FED900EA0EC9 /* Images.xcassets in Resources */,
 				C086A1561962FED900EA0EC9 /* InfoPlist.strings in Resources */,
 				C086A15F1962FED900EA0EC9 /* Main.storyboard in Resources */,
@@ -334,10 +353,13 @@
 				C086A1A0196313B100EA0EC9 /* ReceiveViewController.m in Sources */,
 				C086A1A61963142200EA0EC9 /* MainViewController.m in Sources */,
 				C086A1581962FED900EA0EC9 /* main.m in Sources */,
+				B2A4BAC9196C94A300A734D0 /* ImageReceiveViewController.m in Sources */,
 				C086A1A9196317A800EA0EC9 /* CustomLoginViewController.m in Sources */,
 				C086A19D1963137D00EA0EC9 /* SendViewController.m in Sources */,
 				C086A1A3196313D100EA0EC9 /* PeopleViewController.m in Sources */,
 				C086A15C1962FED900EA0EC9 /* BNRAppDelegate.m in Sources */,
+				B27A3773196C9BCF007D5EB0 /* ImageMessageViewCell.m in Sources */,
+				B27A3770196C9A69007D5EB0 /* ImageSendViewController.m in Sources */,
 				C086A1AC196317C800EA0EC9 /* CustomSignupViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

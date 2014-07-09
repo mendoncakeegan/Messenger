@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 
 @interface ReceiveViewController : UITableViewController
+
 @property (nonatomic, strong) NSArray *msgs;
 
 @end
