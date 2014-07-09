@@ -10,8 +10,11 @@
 
 @interface ImageMessageViewCell : UITableViewCell
 
-@property (weak, nonatomic) IBOutlet UIImageView *thumbnailView;
-@property (weak, nonatomic) IBOutlet UILabel *imageSender;
+@property (strong, nonatomic) IBOutlet UILabel *imageSender;
+@property (strong, nonatomic) UIImage *image;
+@property (strong, nonatomic) IBOutlet UIImageView *thumbnailView;
+
+//@property (strong, nonatomic)
 
 - (void)setThumbnailViewFromImage:(UIImage *)image;
 

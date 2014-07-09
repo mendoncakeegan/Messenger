@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B21AD90D196DC45500304FAB /* ImageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B21AD90C196DC45500304FAB /* ImageViewController.m */; };
 		B27A3770196C9A69007D5EB0 /* ImageSendViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B27A376F196C9A69007D5EB0 /* ImageSendViewController.m */; };
 		B27A3773196C9BCF007D5EB0 /* ImageMessageViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B27A3772196C9BCF007D5EB0 /* ImageMessageViewCell.m */; };
 		B27A3775196C9BE8007D5EB0 /* ImageMessageViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B27A3774196C9BE8007D5EB0 /* ImageMessageViewCell.xib */; };
@@ -55,6 +56,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		B21AD90B196DC45500304FAB /* ImageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageViewController.h; sourceTree = "<group>"; };
+		B21AD90C196DC45500304FAB /* ImageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageViewController.m; sourceTree = "<group>"; };
 		B27A376E196C9A69007D5EB0 /* ImageSendViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageSendViewController.h; sourceTree = "<group>"; };
 		B27A376F196C9A69007D5EB0 /* ImageSendViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageSendViewController.m; sourceTree = "<group>"; };
 		B27A3771196C9BCF007D5EB0 /* ImageMessageViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageMessageViewCell.h; sourceTree = "<group>"; };
@@ -204,6 +207,8 @@
 				C086A19F196313B100EA0EC9 /* ReceiveViewController.m */,
 				B2A4BAC7196C94A300A734D0 /* ImageReceiveViewController.h */,
 				B2A4BAC8196C94A300A734D0 /* ImageReceiveViewController.m */,
+				B21AD90B196DC45500304FAB /* ImageViewController.h */,
+				B21AD90C196DC45500304FAB /* ImageViewController.m */,
 				C086A19B1963137D00EA0EC9 /* SendViewController.h */,
 				C086A19C1963137D00EA0EC9 /* SendViewController.m */,
 				B27A376E196C9A69007D5EB0 /* ImageSendViewController.h */,
@@ -356,6 +361,7 @@
 				B2A4BAC9196C94A300A734D0 /* ImageReceiveViewController.m in Sources */,
 				C086A1A9196317A800EA0EC9 /* CustomLoginViewController.m in Sources */,
 				C086A19D1963137D00EA0EC9 /* SendViewController.m in Sources */,
+				B21AD90D196DC45500304FAB /* ImageViewController.m in Sources */,
 				C086A1A3196313D100EA0EC9 /* PeopleViewController.m in Sources */,
 				C086A15C1962FED900EA0EC9 /* BNRAppDelegate.m in Sources */,
 				B27A3773196C9BCF007D5EB0 /* ImageMessageViewCell.m in Sources */,

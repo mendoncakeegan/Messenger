@@ -62,7 +62,6 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    
     ImageMessageViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"ImageMessageViewCell"
                                                                  forIndexPath:indexPath];
     if (!cell) {
@@ -71,26 +70,52 @@
     }
     
     NSArray *imageMessages = PFUser.currentUser[@"images"];
-    NSString *cellImageString = (imageMessages && [imageMessages count] > 0) ? imageMessages[indexPath.row] : nil;
+    
+    
+    NSString *cellImageString = (imageMessages && ([imageMessages count] > 0)) ? imageMessages[indexPath.row] : nil;
     NSData *data = [self dataFromBase64EncodedString:cellImageString];
     UIImage *cellImage = [UIImage imageWithData:data];
-    [cell setThumbnailViewFromImage:cellImage];
-
+    cell.image = cellImage;
+    
+    cell.image = [UIImage imageNamed:@"camera"];
+    NSLog(@"IMAGE %u", [imageMessages count]);
+    NSLog(@"Height: %f", cell.thumbnailView.bounds.size.height);
+    NSLog(@"Width: %f", cell.thumbnailView.bounds.size.width);
+    NSLog(@"orig x: %f", cell.thumbnailView.bounds.origin.x);
+    NSLog(@"orig y: %f", cell.thumbnailView.bounds.origin.y);
+    
     NSArray *imageSenders = PFUser.currentUser[@"senders"];
-    NSString *imageSender = (imageSenders && [imageSenders count] > 0) ? imageSenders[indexPath.row] : nil;
+    NSString *imageSender = (imageSenders && ([imageSenders count] > 0)) ? imageSenders[indexPath.row] : nil;
+    cell.imageSender = [[UILabel alloc] init];
     cell.imageSender.text = imageSender;
+    NSLog(@"IMAGE %u", [imageMessages count]);
+    NSLog(@"LHeight: %f", cell.imageSender.bounds.size.height);
+    NSLog(@"LWidth: %f", cell.imageSender.bounds.size.width);
+    NSLog(@"Lorig x: %f", cell.imageSender.bounds.origin.x);
+    NSLog(@"Lorig y: %f", cell.imageSender.bounds.origin.y);
     return cell;
 }
 -(NSData *)dataFromBase64EncodedString:(NSString *)string64{
     NSData *data = [[NSData alloc] initWithBase64EncodedString:string64 options:NSDataBase64DecodingIgnoreUnknownCharacters];
     return data;
 }
-
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    PFUser *user = [PFUser currentUser];
+    [self.tableView reloadData];
+}
 // Override to support conditional editing of the table view.
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
 {
     NSArray *imageMessages = PFUser.currentUser[@"images"];
     return !(!imageMessages || [imageMessages count] == 0);
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    UIImage *image = [PFUser currentUser][@"images"][indexPath.row - 1];
+    
 }
 
 /*

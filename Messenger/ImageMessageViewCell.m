@@ -8,6 +8,11 @@
 
 #import "ImageMessageViewCell.h"
 
+@interface ImageMessageViewCell ()
+
+
+@end
+
 @implementation ImageMessageViewCell
 
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
@@ -31,11 +36,21 @@
     // Configure the view for the selected state
 }
 
+- (void)setImage:(UIImage *)image
+{
+    _image = image;
+    [self setThumbnailViewFromImage:image];
+    
+    NSLog(@"Thumbnail view: %@", self.thumbnailView);
+    NSLog(@"Thumbnail view image: %@", self.thumbnailView.image);
+}
+
 - (void)setThumbnailViewFromImage:(UIImage *)image
 {
     CGSize origImageSize = image.size;
     
-    CGRect newRect = CGRectMake(0, 0, 40, 40);
+    CGRect newRect = CGRectMake(self.imageView.bounds.origin.x, self.imageView.bounds.origin.y,
+                                self.imageView.bounds.size.width, self.imageView.bounds.size.height);
     
     float ratio = MAX(newRect.size.width / origImageSize.width,
                       newRect.size.height / origImageSize.height);
@@ -55,8 +70,9 @@
     [image drawInRect:projectRect];
     
     UIImage *smallImage = UIGraphicsGetImageFromCurrentImageContext();
-    self.thumbnailView.image = smallImage;
-    UIGraphicsEndImageContext();
+    
+    _thumbnailView = [[UIImageView alloc] initWithImage:smallImage];
+    NSLog(@"Inner: %g", self.thumbnailView.bounds.size.width);
 }
 
 

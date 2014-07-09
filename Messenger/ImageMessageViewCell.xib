@@ -13,9 +13,13 @@
                 <rect key="frame" x="0.0" y="0.0" width="320" height="68"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="epB-4d-YKB">
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="epB-4d-YKB">
                         <rect key="frame" x="5" y="2" width="63" height="63"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="63" id="4aJ-BC-wFo"/>
+                            <constraint firstAttribute="height" constant="63" id="V0R-WE-tm3"/>
+                        </constraints>
                     </imageView>
                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qym-3B-tUI">
                         <rect key="frame" x="76" y="10" width="224" height="48"/>
@@ -25,9 +29,13 @@
                         <nil key="highlightedColor"/>
                     </label>
                 </subviews>
+                <constraints>
+                    <constraint firstAttribute="centerY" secondItem="epB-4d-YKB" secondAttribute="centerY" constant="0.5" id="sTW-Rz-Poi"/>
+                    <constraint firstItem="epB-4d-YKB" firstAttribute="leading" secondItem="Vzn-eT-VEL" secondAttribute="leading" constant="5" id="wf2-ov-CP6"/>
+                </constraints>
             </tableViewCellContentView>
             <connections>
-                <outlet property="imageSender" destination="Qym-3B-tUI" id="mnj-be-tAS"/>
+                <outlet property="imageSender" destination="Qym-3B-tUI" id="RP8-mp-CGm"/>
                 <outlet property="thumbnailView" destination="epB-4d-YKB" id="mAj-NZ-4vB"/>
             </connections>
         </tableViewCell>
