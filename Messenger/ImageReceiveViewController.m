@@ -73,26 +73,17 @@
     NSArray *imageMessages = PFUser.currentUser[@"images"];
     NSString *cellImageString = (imageMessages && [imageMessages count] > 0) ? imageMessages[indexPath.row] : nil;
     NSData *data = [self dataFromBase64EncodedString:cellImageString];
-    NSLog(@"%@", data);
     UIImage *cellImage = [UIImage imageWithData:data];
     cell.thumbnailView.image = cellImage;
 
     NSArray *imageSenders = PFUser.currentUser[@"senders"];
     NSString *imageSender = (imageSenders && [imageSenders count] > 0) ? imageSenders[indexPath.row] : nil;
     cell.imageSender.text = imageSender;
-    
     return cell;
 }
--(NSData *)dataFromBase64EncodedString:(NSString *)string{
-    if (string.length > 0) {
-        
-        //the iPhone has base 64 decoding built in but not obviously. The trick is to
-        //create a data url that's base 64 encoded and ask an NSData to load it.
-        NSString *data64URLString = [NSString stringWithFormat:@"data:;base64,%@", string];
-        NSData *data = [NSData dataWithContentsOfURL:[NSURL URLWithString:data64URLString]];
-        return data;
-    }
-    return nil;
+-(NSData *)dataFromBase64EncodedString:(NSString *)string64{
+    NSData *data = [[NSData alloc] initWithBase64EncodedString:string64 options:NSDataBase64DecodingIgnoreUnknownCharacters];
+    return data;
 }
 
 // Override to support conditional editing of the table view.
