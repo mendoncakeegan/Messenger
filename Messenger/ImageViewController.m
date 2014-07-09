@@ -7,17 +7,19 @@
 //
 
 #import "ImageViewController.h"
-
+#import "ImageReceiveViewController.h"
 @interface ImageViewController ()
 
-@property (weak, nonatomic) IBOutlet UIImageView *imageView;
-@property (weak, nonatomic) IBOutlet UIToolbar *toolbar;
-@property (weak, nonatomic) IBOutlet UIBarButtonItem *doneButton;
 
 @end
 
 @implementation ImageViewController
-
+-(void)setImage:(UIImage *)image
+{
+    _imageView.image = image;
+    [_imageView setImage:image];
+    NSLog(@"%@", _imageView.image);
+}
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -26,27 +28,13 @@
     }
     return self;
 }
-
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
-    UIImageView *imageView = [[UIImageView alloc] initWithImage:self.image];
-    imageView.contentMode = UIViewContentModeScaleAspectFit;
-    [self.view addSubview:imageView];
-    self.imageView = imageView;
-}
-
-- (void)setImage:(UIImage *)image
-{
-    _image = image;
-    self.imageView.image = _image;
 }
 
 - (IBAction)doneButtonTouched:(id)sender {
-    NSLog(@"Touched the DONE button");
-    
-    [self.navigationController popViewControllerAnimated:YES];
+    [self dismissViewControllerAnimated:YES completion:^{}];
 }
 
 - (void)didReceiveMemoryWarning

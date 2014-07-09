@@ -9,5 +9,5 @@
 #import <UIKit/UIKit.h>
 
 @interface ImageReceiveViewController : UITableViewController
-
+@property (strong, nonatomic) UIImage *image;
 @end

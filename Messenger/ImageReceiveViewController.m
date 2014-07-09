@@ -12,7 +12,7 @@
 #import "Parse/Parse.h"
 
 @interface ImageReceiveViewController ()
-
+@property (nonatomic, strong) NSArray *users;
 @end
 
 @implementation ImageReceiveViewController
@@ -63,6 +63,21 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    PFUser *user = [PFUser currentUser];
+    _users = user[@"senders"];
+    // Get a new or recycled cell
+    UITableViewCell *cell =
+    [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault
+                           reuseIdentifier:@"UITableViewCell"];
+    if(_users && [_users count] != 0) {
+        UIButton *btn = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+        btn.frame = CGRectMake(0,20,200,20+indexPath.row);
+        [btn setTitle:_users[indexPath.row] forState:UIControlStateNormal];
+        [btn addTarget:self action:@selector(userPressed:) forControlEvents:UIControlEventTouchUpInside];
+        [cell.contentView addSubview:btn];
+    }
+    return cell;
+    /*
     ImageMessageViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"ImageMessageViewCell"
                                                                  forIndexPath:indexPath];
     if (!cell) {
@@ -95,6 +110,22 @@
     NSLog(@"Lorig x: %f", cell.imageSender.bounds.origin.x);
     NSLog(@"Lorig y: %f", cell.imageSender.bounds.origin.y);
     return cell;
+     */
+}
+-(void)userPressed:(UIButton *) button
+{
+    NSInteger row = (int)(button.bounds.size.height-19.9);
+    NSString *cellImageString = [PFUser currentUser][@"images"][row];
+    NSData *data = [self dataFromBase64EncodedString:cellImageString];
+    _image = [UIImage imageWithData:data];
+    
+    ImageViewController *ivc = [[ImageViewController alloc] initWithNibName:nil
+                                                                          bundle:nil
+                                                                          ];
+    NSLog(@"%@", _image);
+    [self.tabBarController presentViewController:ivc animated:YES completion:^{
+    }];
+    [ivc setImage:_image];
 }
 -(NSData *)dataFromBase64EncodedString:(NSString *)string64{
     NSData *data = [[NSData alloc] initWithBase64EncodedString:string64 options:NSDataBase64DecodingIgnoreUnknownCharacters];
@@ -113,19 +144,18 @@
     return !(!imageMessages || [imageMessages count] == 0);
 }
 
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    NSLog(@"Selected row %u", indexPath.row);
-    
-    UIImage *image = [PFUser currentUser][@"images"][indexPath.row - 1];
-    
-    ImageViewController *ivc = [[ImageViewController alloc] initWithNibName:nil
-                                                                     bundle:nil];
-    ivc.image = image;
-    
-    [self.navigationController pushViewController:ivc
-                                         animated:YES];
-}
+//- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+//{
+//    NSLog(@"Selected row %u", indexPath.row);
+//    
+//    _image = [PFUser currentUser][@"images"][indexPath.row];
+//    
+//    ImageViewController *ivc = [[ImageViewController alloc] initWithNibName:nil
+//                                bundle:nil];
+//    NSLog(@"asdf");
+//    [self.navigationController pushViewController:ivc
+//                                         animated:YES];
+//}
 
 /*
 // Override to support editing the table view.

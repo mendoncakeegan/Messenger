@@ -9,7 +9,9 @@
 #import <UIKit/UIKit.h>
 
 @interface ImageViewController : UIViewController
-
-@property (weak, nonatomic) UIImage *image;
-
+@property (strong, nonatomic) IBOutlet UIImageView *imageView;
+@property (strong, nonatomic) IBOutlet UIView *view;
+@property (strong, nonatomic) IBOutlet UIToolbar *toolbar;
+@property (strong, nonatomic) IBOutlet UIBarButtonItem *doneButton;
+-(void)setImage:(UIImage *)image;
 @end

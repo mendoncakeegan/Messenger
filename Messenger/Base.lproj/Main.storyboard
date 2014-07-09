@@ -27,42 +27,42 @@
             </objects>
             <point key="canvasLocation" x="-3676" y="-684"/>
         </scene>
-        <!--Image Receive View Controller - ImReceive-->
+        <!--Image Receive View Controller - Image-->
         <scene sceneID="T2Y-kx-eKr">
             <objects>
                 <tableViewController id="arb-bQ-c0g" customClass="ImageReceiveViewController" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="ImReceive" id="fh0-Ke-SAz"/>
+                    <tabBarItem key="tabBarItem" title="Image" image="Receive" id="fh0-Ke-SAz"/>
                     <navigationItem key="navigationItem" id="v6C-lw-3M3"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BsM-oe-beC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-3223" y="416"/>
         </scene>
-        <!--Image Send View Controller - ImSend-->
+        <!--Image Send View Controller - Image-->
         <scene sceneID="8wt-Xl-C4s">
             <objects>
                 <tableViewController id="6ab-Gb-DlO" customClass="ImageSendViewController" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="ImSend" id="cJI-B6-c9N"/>
+                    <tabBarItem key="tabBarItem" title="Image" image="Send" id="cJI-B6-c9N"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9y8-ed-RiV" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-2478" y="-583"/>
         </scene>
-        <!--Receive View Controller - Receive-->
+        <!--Receive View Controller - Message-->
         <scene sceneID="BOR-8H-Pur">
             <objects>
                 <tableViewController id="x94-wG-6fc" customClass="ReceiveViewController" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Receive" image="Receive" id="Wwu-RB-pF2"/>
+                    <tabBarItem key="tabBarItem" title="Message" image="Receive" id="Wwu-RB-pF2"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ovv-kh-cmv" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-2844" y="7"/>
         </scene>
-        <!--Send View Controller - Send-->
+        <!--Send View Controller - Message-->
         <scene sceneID="Wke-dR-ZFg">
             <objects>
                 <tableViewController id="rbX-t1-XWJ" customClass="SendViewController" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Send" image="Send" id="a1I-Oe-iSo"/>
+                    <tabBarItem key="tabBarItem" title="Message" image="Send" id="a1I-Oe-iSo"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TPv-IR-WST" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

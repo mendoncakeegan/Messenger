@@ -9,14 +9,15 @@
                 <outlet property="doneButton" destination="5Jh-H1-zWg" id="hxL-sz-kA6"/>
                 <outlet property="imageView" destination="EzX-hh-Wfr" id="9dF-a8-HTX"/>
                 <outlet property="toolbar" destination="tvw-e6-oDD" id="obg-gn-nNf"/>
+                <outlet property="view" destination="wyF-fS-xb7" id="zoP-qh-3XS"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <view contentMode="scaleToFill" id="wyF-fS-xb7" customClass="UIControl">
+        <view contentMode="scaleToFill" id="wyF-fS-xb7">
             <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="EzX-hh-Wfr" customClass="Image">
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="EzX-hh-Wfr">
                     <rect key="frame" x="0.0" y="0.0" width="320" height="524"/>
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                 </imageView>
