@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="5056" systemVersion="13E28" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ImageViewController">
+            <connections>
+                <outlet property="doneButton" destination="5Jh-H1-zWg" id="hxL-sz-kA6"/>
+                <outlet property="imageView" destination="EzX-hh-Wfr" id="9dF-a8-HTX"/>
+                <outlet property="toolbar" destination="tvw-e6-oDD" id="obg-gn-nNf"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="wyF-fS-xb7" customClass="UIControl">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="EzX-hh-Wfr" customClass="Image">
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="524"/>
+                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                </imageView>
+                <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tvw-e6-oDD">
+                    <rect key="frame" x="0.0" y="524" width="320" height="44"/>
+                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                    <items>
+                        <barButtonItem systemItem="done" id="5Jh-H1-zWg">
+                            <connections>
+                                <action selector="doneButtonTouched:" destination="-1" id="Hxi-q2-XnS"/>
+                            </connections>
+                        </barButtonItem>
+                    </items>
+                </toolbar>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="tvw-e6-oDD" secondAttribute="trailing" id="2Wg-id-SZr"/>
+                <constraint firstItem="tvw-e6-oDD" firstAttribute="top" secondItem="EzX-hh-Wfr" secondAttribute="bottom" id="2bp-Jw-GsK"/>
+                <constraint firstItem="tvw-e6-oDD" firstAttribute="leading" secondItem="wyF-fS-xb7" secondAttribute="leading" id="6Qg-J5-KNe"/>
+                <constraint firstItem="EzX-hh-Wfr" firstAttribute="top" secondItem="wyF-fS-xb7" secondAttribute="top" id="NvV-FR-eVd"/>
+                <constraint firstAttribute="trailing" secondItem="EzX-hh-Wfr" secondAttribute="trailing" id="dHf-Wu-BfL"/>
+                <constraint firstAttribute="bottom" secondItem="tvw-e6-oDD" secondAttribute="bottom" id="kdm-1A-5vg"/>
+                <constraint firstItem="EzX-hh-Wfr" firstAttribute="leading" secondItem="wyF-fS-xb7" secondAttribute="leading" id="ywc-kl-Icu"/>
+            </constraints>
+            <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+        </view>
+    </objects>
+</document>

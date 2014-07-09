@@ -8,6 +8,7 @@
 
 #import "ImageReceiveViewController.h"
 #import "ImageMessageViewCell.h"
+#import "ImageViewController.h"
 #import "Parse/Parse.h"
 
 @interface ImageReceiveViewController ()
@@ -102,7 +103,7 @@
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
-    PFUser *user = [PFUser currentUser];
+//    PFUser *user = [PFUser currentUser];
     [self.tableView reloadData];
 }
 // Override to support conditional editing of the table view.
@@ -114,8 +115,16 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    NSLog(@"Selected row %u", indexPath.row);
+    
     UIImage *image = [PFUser currentUser][@"images"][indexPath.row - 1];
     
+    ImageViewController *ivc = [[ImageViewController alloc] initWithNibName:nil
+                                                                     bundle:nil];
+    ivc.image = image;
+    
+    [self.navigationController pushViewController:ivc
+                                         animated:YES];
 }
 
 /*

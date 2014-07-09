@@ -7,6 +7,7 @@
 //
 
 #import "BNRAppDelegate.h"
+#import "MainViewController.h"
 #import <Parse/Parse.h>
 @implementation BNRAppDelegate
 
@@ -17,6 +18,14 @@
     [application registerForRemoteNotificationTypes:UIRemoteNotificationTypeBadge|
      UIRemoteNotificationTypeAlert|
      UIRemoteNotificationTypeSound];
+    
+    if (!self.window.rootViewController) {
+        MainViewController *mvc = [[MainViewController alloc] init];
+        UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:mvc];
+        navController.restorationIdentifier = NSStringFromClass([navController class]);
+        self.window.rootViewController = navController;
+    }
+    
     return YES;
 }
 
@@ -44,7 +53,25 @@
 
 - (void)applicationWillTerminate:(UIApplication *)application
 {
+
 }
+
+- (UIViewController *)application:(UIApplication *)application
+viewControllerWithRestorationIdentifierPath:(NSArray *)identifierComponents
+                            coder:(NSCoder *)coder
+{
+    UIViewController *vc = [[UINavigationController alloc] init];
+    vc.restorationIdentifier = [identifierComponents lastObject];
+    
+    if([identifierComponents count] == 1) {
+        self.window.rootViewController = vc;
+    } else {
+        vc.modalPresentationStyle = UIModalPresentationFormSheet;
+    }
+    
+    return vc;
+}
+
 - (void)application:(UIApplication *)application
 didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken
 {

@@ -32,28 +32,11 @@
             <objects>
                 <tableViewController id="arb-bQ-c0g" customClass="ImageReceiveViewController" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="ImReceive" id="fh0-Ke-SAz"/>
+                    <navigationItem key="navigationItem" id="v6C-lw-3M3"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BsM-oe-beC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-3223" y="416"/>
-        </scene>
-        <!--View Controller-->
-        <scene sceneID="LUK-m1-ydJ">
-            <objects>
-                <viewController id="i6v-Gh-e6L" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="NDZ-1H-adL"/>
-                        <viewControllerLayoutGuide type="bottom" id="54s-o6-8XK"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="fqo-4S-mAC">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Asu-vj-fO0" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-2791" y="700"/>
         </scene>
         <!--Image Send View Controller - ImSend-->
         <scene sceneID="8wt-Xl-C4s">
